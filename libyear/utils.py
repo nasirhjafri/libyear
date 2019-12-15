@@ -8,6 +8,8 @@ REQUIREMENT_VERSION_LTE_RE = r'[<=]=([^$,]*)'
 
 def get_requirement_name_and_version(requirement):
     no_requirement = None, None, None
+    # Remove comments if they are on the same line
+    requirement = requirement.split('#')[0].strip()
     if not requirement:
         return no_requirement
 
@@ -21,7 +23,7 @@ def get_requirement_name_and_version(requirement):
         return no_requirement
 
     if version:
-        return name[0], version, None
+        return name[0], version[0], None
     return name[0], None, version_lt[0]
 
 
