@@ -1,4 +1,28 @@
 import os
+import re
+
+REQUIREMENT_NAME_RE = r'^([^=><]+)'
+REQUIREMENT_VERSION_LT_RE = r'<([^$,]*)'
+REQUIREMENT_VERSION_LTE_RE = r'[<=]=([^$,]*)'
+
+
+def get_requirement_name_and_version(requirement):
+    no_requirement = None, None, None
+    if not requirement:
+        return no_requirement
+
+    name = re.findall(REQUIREMENT_NAME_RE, requirement)
+    if not name:
+        return no_requirement
+
+    version = re.findall(REQUIREMENT_VERSION_LTE_RE, requirement)
+    version_lt = re.findall(REQUIREMENT_VERSION_LT_RE, requirement)
+    if not version_lt and not version:
+        return no_requirement
+
+    if version:
+        return name[0], version, None
+    return name[0], None, version_lt[0]
 
 
 def get_requirement_files(path_or_file):
@@ -28,7 +52,7 @@ def is_requirement(line):
     )
 
 
-def load_requirements(requirements_paths):
+def load_requirements(*requirements_paths):
     """
     Load all requirements from the specified requirements files.
     Returns a list of requirement strings.
