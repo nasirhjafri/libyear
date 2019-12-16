@@ -58,6 +58,8 @@ libyear -r requirements.txt
 +-------------------------+-----------------+----------------+-----------------+
 Your system is 103.78 libyears behind
 ```
+
+![Demo Image](./docs/demo.png)
 ## Example 1
 For example, a rails 5.0.0 dependency (released June 30, 2016) is roughly 1 libyear behind the 5.1.2 version (released June 26, 2017).
 
