@@ -3,8 +3,12 @@
 A simple measure of software dependency freshness. It is a single number telling you how up-to-date your dependencies are.
 
 ## Useage
-libyear -r requiremetns.txt
-libyear -r requirements/
+A single requirement file
+`libyear -r requiremetns.txt`
+
+A folder with requirement files
+`libyear -r requirements/`
+
 ## Example 1
 For example, a rails 5.0.0 dependency (released June 30, 2016) is roughly 1 libyear behind the 5.1.2 version (released June 26, 2017).
 
