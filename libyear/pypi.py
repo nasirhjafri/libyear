@@ -48,7 +48,7 @@ def get_version(pypi_data, version, lt=False):
 def get_version_release_dates(name, version, version_lt):
     pypi_data = get_pypi_data(name)
     if not pypi_data:
-        return None, None
+        return None, None, None, None
 
     releases = pypi_data['releases']
     latest_version = pypi_data['info']['version']
@@ -57,18 +57,19 @@ def get_version_release_dates(name, version, version_lt):
 
     version = get_version(pypi_data, version)
     if version is None:
-        return None, None
+        return None, None, None, None
 
     latest_version_date = releases[latest_version][-1]['upload_time_iso_8601']
     latest_version_date = dateutil.parser.parse(latest_version_date)
     if version not in releases:
-        return latest_version_date, latest_version_date
+        return None, latest_version_date, latest_version, latest_version_date
 
     version_date = releases[version][-1]['upload_time_iso_8601']
     version_date = dateutil.parser.parse(version_date)
-    return version_date, latest_version_date
+    return version, version_date, latest_version, latest_version_date
 
 
 def get_lib_days(name, version, version_lt):
-    cr, lr = get_version_release_dates(name, version, version_lt)
-    return (lr - cr).days if cr else 0
+    v, cr, lv, lr = get_version_release_dates(name, version, version_lt)
+    libdays = (lr - cr).days if cr else 0
+    return v, lv, libdays
