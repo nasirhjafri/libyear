@@ -2,17 +2,16 @@
 
 from setuptools import setup
 
-from libyear.utils import load_requirements
 
 setup(
     name='libyear',
-    version='0.0.5',
+    version='0.1.0',
     description='A simple measure of software dependency freshness.',
     long_description=open('README.md').read(),
     author='nasirhjafri',
     url='https://github.com/nasirhjafri/libyear',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Environment :: Other Environment',
         'Intended Audience :: Developers',
@@ -24,5 +23,8 @@ setup(
     scripts=['libyear/libyear'],
     dependency_links=[
     ],
-    install_requires=load_requirements('requirements.txt'),
+    install_requires=[
+        'requests==2.22.0',
+        'prettytable==0.7.2'
+    ],
 )
