@@ -68,7 +68,7 @@ There are obviously more nuanced ways to calculate dependency freshness. The adv
 If your system has two dependencies, the first one year old, the second three, then your system is four libyears out-of-date.
 
 ## A Healthy App
-At Singlebrook we try to keep our client’s apps below 10 libyears. We regularly rescue projects that are over 100 libyears behind.
+Apps below 10 libyears are considered to be healthy apps. We regularly rescue projects that are over 100 libyears behind.
 
 
 ## Etymology
