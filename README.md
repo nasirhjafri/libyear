@@ -6,7 +6,7 @@ A simple measure of software dependency freshness. It is a single number telling
 `pip install libyear`
 
 
-## Useage
+## Usage
 A single requirement file
 `libyear -r requiremetns.txt`
 
