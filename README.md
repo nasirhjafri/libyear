@@ -1,6 +1,6 @@
 # libyear
 
-A simple measure of software dependency freshness. It is a single number telling you how up-to-date your dependencies are.
+A **simple** measure of software dependency freshness. It is a **single number** telling you how up-to-date your dependencies are.
 
 ## How to install
 `pip install libyear`
