@@ -16,7 +16,7 @@ A **simple** measure of software dependency freshness. It is a **single number**
 
 ## Usage
 A single requirement file
-`libyear -r requiremetns.txt`
+`libyear -r requirements.txt`
 
 A folder with requirement files
 `libyear -r requirements/`
@@ -78,7 +78,6 @@ If your system has two dependencies, the first one year old, the second three, t
 
 ## A Healthy App
 Apps below 10 libyears are considered to be healthy apps. We regularly rescue projects that are over 100 libyears behind.
-
 
 ## Etymology
 "lib" is short for "library", the most common form of dependency.
