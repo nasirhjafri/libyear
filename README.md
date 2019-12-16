@@ -2,11 +2,9 @@
 [![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/nasirhjafri/libyear/)
 [![PyPI version fury.io](https://badge.fury.io/py/libyear.svg)](https://pypi.python.org/pypi/libyear/)
 [![GitHub contributors](https://img.shields.io/github/contributors/nasirhjafri/libyear.svg)](https://GitHub.com/nasirhjafri/libyear/graphs/contributors/)
-[![GitHub followers](https://img.shields.io/github/followers/nasirhjafri.svg?style=social&label=Follow%20Author&maxAge=2592000)](https://github.com/nasirhjafri?tab=followers)
 
 
-# libyear [![GitHub stars](https://img.shields.io/github/stars/nasirhjafri/libyear.svg?style=social&label=Star&maxAge=2592000)](https://github.com/nasirhjafri/libyear/stargazers/)
-
+# libyear 
 
 A **simple** measure of software dependency freshness. It is a **single number** telling you how up-to-date your dependencies are.
 
