@@ -26,6 +26,6 @@ setup(
     install_requires=[
         'requests==2.22.0',
         'prettytable==0.7.2',
-        'dateutil==2.8.1',
+        'python-dateutil==2.8.1',
     ],
 )
