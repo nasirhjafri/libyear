@@ -4,13 +4,13 @@ from setuptools import setup
 
 setup(
     name="libyear",
-    version="0.1.0",
+    version="0.2.0",
     description="A simple measure of software dependency freshness.",
     long_description=open("README.md").read(),
     author="nasirhjafri",
     url="https://github.com/nasirhjafri/libyear",
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "Environment :: Other Environment",
         "Intended Audience :: Developers",
