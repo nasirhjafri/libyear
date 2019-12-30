@@ -22,9 +22,9 @@ setup(
     scripts=["libyear/libyear"],
     dependency_links=[],
     install_requires=[
-        "requests==2.22.0",
-        "prettytable==0.7.2",
-        "python-dateutil==2.8.1",
+        "requests>=2.0.0",
+        "prettytable>=0.7.2",
+        "python-dateutil>=2.7.0",
     ],
     setup_requires=["pytest-runner"],
     tests_require=["pytest"],
