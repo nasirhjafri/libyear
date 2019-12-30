@@ -7,6 +7,7 @@
 # libyear 
 
 A **simple** measure of software dependency freshness. It is a **single number** telling you how up-to-date your dependencies are.
+https://libyear.com/
 
 ![Demo Image](./docs/demo.png)
 
