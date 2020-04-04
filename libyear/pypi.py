@@ -44,6 +44,14 @@ def get_version(pypi_data, version, lt=False):
             return releases[idx + 1]
     return version
 
+def get_no_of_releases(name, version):
+    pypi_data = get_pypi_data(name)
+    if not pypi_data:
+        return None, None, None, None
+
+    releases = pypi_data['releases']
+    
+    return (len(releases)-list(releases).index(version))
 
 def get_version_release_dates(name, version, version_lt):
     pypi_data = get_pypi_data(name)
