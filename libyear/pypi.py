@@ -67,12 +67,22 @@ def get_version_release_dates(name, version, version_lt):
     if version is None:
         return None, None, None, None
 
-    latest_version_date = releases[latest_version][-1]['upload_time_iso_8601']
+    try:
+        latest_version_date = releases[latest_version][-1]['upload_time_iso_8601']
+    except IndexError:
+        print(f'Latest version of {name!r} has no upload time.')
+        return None, None, None, None
+
     latest_version_date = dateutil.parser.parse(latest_version_date)
     if version not in releases:
         return None, latest_version_date, latest_version, latest_version_date
 
-    version_date = releases[version][-1]['upload_time_iso_8601']
+    try:
+        version_date = releases[version][-1]['upload_time_iso_8601']
+    except IndexError:
+        print(f'Used release of {name}=={version} has no upload time.')
+        return None, None, None, None
+
     version_date = dateutil.parser.parse(version_date)
     return version, version_date, latest_version, latest_version_date
 
