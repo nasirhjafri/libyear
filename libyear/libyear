@@ -10,6 +10,7 @@ from libyear.utils import load_requirements, get_requirement_files, get_requirem
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-r', help="Requirements file/path", action='store')
+    parser.add_argument('--sort', help="Sort by years behind, in descending order", action='store_true')
     args = parser.parse_args()
     requirements = set()
     for req_file in get_requirement_files(args.r):
@@ -31,6 +32,10 @@ def main():
         if v and days > 0:
             pt.add_row([name, v, lv, str(round(days / 365, 2))])
         total_days += days
+
+    if args.sort:
+        pt.sortby = 'Libyears behind'
+        pt.reversesort = True
 
     if total_days == 0:
         print("Your system is up-to-date!")
