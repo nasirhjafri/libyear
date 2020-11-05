@@ -23,6 +23,7 @@ setup(
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
+        "License :: OSI Approved :: MIT License",
     ],
     packages=["libyear"],
     py_modules=["libyear"],
