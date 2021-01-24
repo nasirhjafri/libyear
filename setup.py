@@ -35,5 +35,4 @@ setup(
         "python-dateutil>=2.7.0",
     ],
     setup_requires=["pytest-runner"],
-    tests_require=["pytest"],
 )
