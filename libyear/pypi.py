@@ -1,6 +1,6 @@
 from distutils.version import LooseVersion
 
-import dateutil.parser
+from datetime import datetime
 import requests
 
 
@@ -73,7 +73,7 @@ def get_version_release_dates(name, version, version_lt):
         print(f'Latest version of {name!r} has no upload time.')
         return None, None, None, None
 
-    latest_version_date = dateutil.parser.parse(latest_version_date)
+    latest_version_date = datetime.strptime(latest_version_date, "%Y-%m-%dT%H:%M:%S.%fZ")
     if version not in releases:
         return None, latest_version_date, latest_version, latest_version_date
 
@@ -83,7 +83,7 @@ def get_version_release_dates(name, version, version_lt):
         print(f'Used release of {name}=={version} has no upload time.')
         return None, None, None, None
 
-    version_date = dateutil.parser.parse(version_date)
+    version_date = datetime.strptime(version_date, "%Y-%m-%dT%H:%M:%S.%fZ")
     return version, version_date, latest_version, latest_version_date
 
 
