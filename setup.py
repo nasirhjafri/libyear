@@ -32,7 +32,6 @@ setup(
     install_requires=[
         "requests>=2.0.0",
         "prettytable>=0.7.2",
-        "python-dateutil>=2.7.0",
     ],
     setup_requires=["pytest-runner"],
 )
