@@ -142,9 +142,9 @@ pluggy==0.13.1 \
 pre-commit==1.20.0 \
     --hash=sha256:9f152687127ec90642a2cc3e4d9e1e6240c4eb153615cb02aa1ad41d331cbb6e \
     --hash=sha256:c2e4810d2d3102d354947907514a78c5d30424d299dc0fe48f5aa049826e9b50
-py==1.8.0 \
-    --hash=sha256:64f65755aee5b381cea27766a3a147c3f15b9b6b9ac88676de66ba2ae36793fa \
-    --hash=sha256:dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53 \
+py==1.10.0 \
+    --hash=sha256:3b80836aa6d1feeaa108e046da6423ab8f6ceda6468545ae8d02d9d58d18818a \
+    --hash=sha256:21b81bda15b66ef5e1a777a21c4dcd9c20ad3efd0b3f817e7a809035269e1bd3 \
     # via pytest, tox
 pycodestyle==2.5.0 \
     --hash=sha256:95a2219d12372f05704562a14ec30bc76b05a5b297b21a5dfe3f6fac3491ae56 \
