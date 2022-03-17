@@ -84,5 +84,15 @@ Apps below 10 libyears are considered to be healthy apps. We regularly rescue pr
 ## Etymology
 "lib" is short for "library", the most common form of dependency.
 
+## Development
+
+To develop this library, follow this process:
+
+1. Fork and clone this repository
+1. Install dependencies: `pip install -r test_requirements.txt .`
+1. Run tests: `pytest`
+
+Also see `.github/workflows/pythonpackage.yml` for other steps taken during testing.
+
 ## References
 J. Cox, E. Bouwers, M. van Eekelen and J. Visser, Measuring Dependency Freshness in Software Systems. In Proceedings of the 37th International Conference on Software Engineering (ICSE 2015), May 2015 https://ericbouwers.github.io/papers/icse15.pdf
