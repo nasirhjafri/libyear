@@ -4,7 +4,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/nasirhjafri/libyear.svg)](https://GitHub.com/nasirhjafri/libyear/graphs/contributors/)
 
 
-# libyear 
+# libyear
 
 A **simple** measure of software dependency freshness. It is a **single number** telling you how up-to-date your dependencies are.
 
@@ -23,9 +23,12 @@ A single requirement file
 A folder with requirement files
 `libyear -r requirements/`
 
+A Pipfile
+`libyear -p Pipfile`
+
 ## Example output
 ```
-libyear -r requirements.txt 
+libyear -r requirements.txt
 +-------------------------+-----------------+----------------+-----------------+
 |         Library         | Current Version | Latest Version | Libyears behind |
 +-------------------------+-----------------+----------------+-----------------+
