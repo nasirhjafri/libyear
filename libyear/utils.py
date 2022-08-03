@@ -1,6 +1,9 @@
 import os
 import re
 
+from pipfile import Pipfile
+
+
 REQUIREMENT_NAME_RE = r'^([^=><]+)'
 REQUIREMENT_VERSION_LT_RE = r'<([^$,]*)'
 REQUIREMENT_VERSION_LTE_RE = r'[<=]=([^$,]*)'
@@ -66,4 +69,30 @@ def load_requirements(*requirements_paths):
             line.strip() for line in open(path).readlines()
             if is_requirement(line)
         )
+    return list(requirements)
+
+
+def load_pipfile(pipfile_path):
+    """
+    Load all requirements from the specified Pipfile.
+    Returns a list of requirement strings.
+    """
+    requirements = set()
+    parsed_data = Pipfile.load(pipfile_path)
+
+    for package, version in parsed_data.data['default'].items():
+        # Version not specified, assume latest
+        if version == '*':
+            requirements.add(package)
+            continue
+
+        # If extra info is provided, use just version
+        # Ignore editable entries (e.g. git repos)
+        if isinstance(version, dict):
+            if 'version' in version.keys():
+                requirements.add(f'{package}{version["version"]}')
+            continue
+
+        requirements.add(f'{package}{version}')
+
     return list(requirements)
