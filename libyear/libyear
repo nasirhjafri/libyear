@@ -19,7 +19,7 @@ def main():
     pt = PrettyTable()
     pt.field_names = ['Library', 'Current Version', 'Latest Version', 'Libyears behind']
     total_days = 0
-    
+
     for req in requirements:
         name, version, version_lt = get_requirement_name_and_version(req)
         if not name:
@@ -27,7 +27,7 @@ def main():
 
         if not version and not version_lt:
             continue
-        
+
         v, lv, days = get_lib_days(name, version, version_lt)
         if v and days > 0:
             pt.add_row([name, v, lv, str(round(days / 365, 2))])
@@ -36,13 +36,15 @@ def main():
     if args.sort:
         pt.sortby = 'Libyears behind'
         pt.reversesort = True
+    else:
+        pt.sortby = 'Library'
 
     if total_days == 0:
         print("Your system is up-to-date!")
     else:
         print(pt)
         print("Your system is %s libyears behind" % str(round(total_days / 365, 2)))
-        
+
 
 
 if __name__ == "__main__":
