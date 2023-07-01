@@ -2,6 +2,7 @@ from distutils.version import LooseVersion
 
 import dateutil.parser
 import requests
+import sys
 
 
 def get_pypi_data(name, version=None):
@@ -70,7 +71,7 @@ def get_version_release_dates(name, version, version_lt):
     try:
         latest_version_date = releases[latest_version][-1]['upload_time_iso_8601']
     except IndexError:
-        print(f'Latest version of {name!r} has no upload time.')
+        print(f'Latest version of {name!r} has no upload time.', file=sys.stderr)
         return None, None, None, None
 
     latest_version_date = dateutil.parser.parse(latest_version_date)
@@ -80,7 +81,7 @@ def get_version_release_dates(name, version, version_lt):
     try:
         version_date = releases[version][-1]['upload_time_iso_8601']
     except IndexError:
-        print(f'Used release of {name}=={version} has no upload time.')
+        print(f'Used release of {name}=={version} has no upload time.', file=sys.stderr)
         return None, None, None, None
 
     version_date = dateutil.parser.parse(version_date)
