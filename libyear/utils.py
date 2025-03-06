@@ -9,7 +9,10 @@ REQUIREMENT_VERSION_LTE_RE = r'[<=]=([^$,]*)'
 def get_requirement_name_and_version(requirement):
     no_requirement = None, None, None
     # Remove comments if they are on the same line
-    requirement = requirement.split()[0].strip()
+    requirement = requirement.split("#")[0].strip()
+    requirement = requirement.split("\\")[0].strip()
+    requirement = requirement.split("--")[0].strip()
+    requirement = requirement.split(";")[0].strip()
     if not requirement:
         return no_requirement
 
@@ -22,9 +25,17 @@ def get_requirement_name_and_version(requirement):
     if not version_lt and not version:
         return no_requirement
 
-    if version:
-        return name[0], version[0], None
-    return name[0], None, version_lt[0]
+    if version and not version_lt:
+        return name[0].strip(), version[0].strip(), None
+    if not version and version_lt:
+        return name[0].strip(), None, version_lt[0].strip()
+    if version and version_lt:
+        if version[0] == version_lt[0] or version_is_greater_than(version[0], version_lt[0]):
+            return name[0].strip(), None, version_lt[0].strip()
+        else:
+            return name[0].strip(), version[0].strip(), None
+
+    return no_requirement
 
 
 def get_requirement_files(path_or_file):
@@ -67,3 +78,17 @@ def load_requirements(*requirements_paths):
             if is_requirement(line)
         )
     return list(requirements)
+
+def version_is_greater_than(greater, lesser):
+    greater_major, greater_minor, greater_patch = greater.replace("*", "999999999").split('.')
+    lesser_major, lesser_minor, lesser_patch = lesser.replace("*", "999999999").split('.')
+    try:
+        if int(greater_major) > int(lesser_major):
+            return True
+        if int(greater_major) == int(lesser_major) and int(greater_minor) > int(lesser_minor):
+            return True
+        if int(greater_major) == int(lesser_major) and int(greater_minor) == int(lesser_minor) and int(greater_patch) > int(lesser_patch):
+            return True
+    except ValueError:
+        return False
+    return False
